@@ -1,0 +1,130 @@
+======================================================================
+TEST 45: Phase 6 — Consecutive-prime band overlap diagnostic
+======================================================================
+
+  Baseline: 5-term model (Z_bal + Z_ch + Z_R + Z_deg + Z_tp)
+  S_baseline = 0.026666
+  Per-row: S_u=0.025348, S_c=0.000466, S_t=0.000853
+  Signatures: ['d>s>b', 's>d>b', 'b>s>d']
+
+======================================================================
+Q1: Band overlap profile (9 transitions)
+======================================================================
+
+  trans  |B_sh| |B_gn| |shrd|   Jacc  Σshrd  gap  cont  multi
+  ────── ────── ────── ────── ────── ────── ──── ───── ──────
+  u→d         9     13      8  0.571     98    0     ✓      9
+  u→s         7     13      7  0.538     95    0     ✓      8
+  u→b         3     13      3  0.231     59    0     ✓      3
+  c→d         9     11      6  0.429     90    0     ✓      6
+  c→s         7     11      6  0.500     90    0     ✓      6
+  c→b         3     11      3  0.273     59    0     ✓      3
+  t→d         9      —      —      —      —    —     —      —  (pure shedding)
+  t→s         7      —      —      —      —    —     —      —  (pure shedding)
+  t→b         3      —      —      —      —    —     —      —  (pure shedding)
+
+  Detailed shared constituents:
+    u→d: shed bands [5, 53, 59] ∩ gain bands [127, 271] = {3,5,7,11,13,17,19,23}
+    u→s: shed bands [53, 59] ∩ gain bands [127, 271] = {5,7,11,13,17,19,23}
+    u→b: shed bands [59] ∩ gain bands [127, 271] = {17,19,23}
+    c→d: shed bands [5, 53, 59] ∩ gain bands [271] = {7,11,13,17,19,23}
+    c→s: shed bands [53, 59] ∩ gain bands [271] = {7,11,13,17,19,23}
+    c→b: shed bands [59] ∩ gain bands [271] = {17,19,23}
+
+  Q1 COMPLETE
+
+======================================================================
+Q2: Band-overlap Z-term candidates (added as 6th term)
+======================================================================
+
+  Candidate 1 (count):
+    S = 0.017690 (ΔS = -0.008976) ▼ sigs=✓
+    Per-row: S_u=0.014133 (Δ-0.011216), S_c=0.002705 (Δ+0.002239), S_t=0.000853 (Δ+0.000000)
+    → 1/3 rows improved, 0/3 rows damaged beyond net gain
+    → PHYSICALLY INTERESTING: genuine row-level improvement
+
+  Candidate 2 (jaccard):
+    S = 0.017720 (ΔS = -0.008947) ▼ sigs=✓
+    Per-row: S_u=0.014825 (Δ-0.010523), S_c=0.002042 (Δ+0.001577), S_t=0.000853 (Δ+0.000000)
+    → 1/3 rows improved, 0/3 rows damaged beyond net gain
+    → PHYSICALLY INTERESTING: genuine row-level improvement
+
+  Candidate 3 (sum/P):
+    S = 0.025215 (ΔS = -0.001451) ▼ sigs=✓
+    Per-row: S_u=0.023715 (Δ-0.001633), S_c=0.000648 (Δ+0.000182), S_t=0.000853 (Δ+0.000000)
+    → 1/3 rows improved, 0/3 rows damaged beyond net gain
+    → PHYSICALLY INTERESTING: genuine row-level improvement
+
+  Candidate 4 (gap):
+    S = 0.026666 (ΔS = +0.000000) ▲ sigs=✓
+    Per-row: S_u=0.025348 (Δ+0.000000), S_c=0.000466 (Δ+0.000000), S_t=0.000853 (Δ+0.000000)
+
+  Candidate 5 (ln_overlap):
+    S = 0.014188 (ΔS = -0.012478) ▼ sigs=✓
+    Per-row: S_u=0.006047 (Δ-0.019301), S_c=0.007289 (Δ+0.006823), S_t=0.000853 (Δ+0.000000)
+    → 1/3 rows improved, 0/3 rows damaged beyond net gain
+    → PHYSICALLY INTERESTING: genuine row-level improvement
+
+  Q2 COMPLETE
+
+======================================================================
+Q3: Complement vs replacement of Z_ch (all 5 candidates)
+======================================================================
+
+  Reference: Z_ch removed only → S = 0.116464, sigs = ['d>s>b', 's>d>b', 'b>s>d']
+
+  cand          complement S     replace S          base
+  ──────────── ───────────── ───────────── ─────────────
+  count          0.017690  ✓   0.105102  ✓   0.026666
+  jaccard        0.017720  ✓   0.101234  ✓   0.026666
+  sum/P          0.025215  ✓   0.114469  ✓   0.026666
+  gap            0.026666  ✓   0.116464  ✓   0.026666
+  ln_overlap     0.014188  ✓   0.097442  ✓   0.026666
+
+  Best overall: ln_overlap (complement), S = 0.014188
+
+  Improvement found. Running full subset ablation with best band term...
+
+  Top 10 subsets of {Z_bal, Z_ch, Z_R, Z_deg, Z_tp, Z_band}:
+
+    #  n          S         ΔS  sigs terms
+  ─── ── ────────── ────────── ───── ────────────────────────────────────────
+  Evaluated 63 non-empty subsets.
+
+    1  6   0.014188  -0.012478     ✓ Z_bal+Z_ch+Z_R+Z_deg+Z_tp+Z_band
+    2  5   0.026666  +0.000000     ✓ Z_bal+Z_ch+Z_R+Z_deg+Z_tp
+    3  5   0.051276  +0.024610     ✓ Z_bal+Z_ch+Z_R+Z_deg+Z_band
+    4  4   0.063754  +0.037088     ✓ Z_bal+Z_ch+Z_R+Z_deg
+    5  5   0.076144  +0.049477     ✓ Z_bal+Z_ch+Z_R+Z_tp+Z_band
+    6  5   0.097442  +0.070775     ✓ Z_bal+Z_R+Z_deg+Z_tp+Z_band
+    7  4   0.113232  +0.086565     ✓ Z_bal+Z_ch+Z_R+Z_band
+    8  4   0.116464  +0.089798     ✓ Z_bal+Z_R+Z_deg+Z_tp
+    9  4   0.120173  +0.093507     ✓ Z_bal+Z_ch+Z_R+Z_tp
+   10  4   0.134529  +0.107863     ✓ Z_bal+Z_R+Z_deg+Z_band
+
+  Q3 COMPLETE
+
+======================================================================
+SUMMARY
+======================================================================
+
+  Baseline S = 0.026666 (5-term model)
+
+  Q2 — Band-overlap candidates as 6th term:
+    ln_overlap   S=0.014188 (ΔS=-0.012478) ▼ ✓
+    count        S=0.017690 (ΔS=-0.008976) ▼ ✓
+    jaccard      S=0.017720 (ΔS=-0.008947) ▼ ✓
+    sum/P        S=0.025215 (ΔS=-0.001451) ▼ ✓
+    gap          S=0.026666 (ΔS=+0.000000) ▲ ✓
+
+  Q3 — Best model: ln_overlap (complement), S = 0.014188
+    Improvement: 46.8% over 5-term baseline
+    Signal: STRONG — band structure is physically active
+
+  Q1 — Band overlap profile:      COMPLETE
+  Q2 — Candidate 6th terms:       COMPLETE
+  Q3 — Complement vs replacement: COMPLETE
+
+======================================================================
+COMPLETE — 0.0s
+======================================================================

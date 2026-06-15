@@ -1,0 +1,427 @@
+======================================================================
+TEST 43: Phase 4 — CKM phase connection
+======================================================================
+
+======================================================================
+Q1: Extract mixing angles from impedance magnitudes
+======================================================================
+
+     angle    impedance     observed       diff
+       θ₁₂      12.0984°      13.0088°    -0.9104°
+       θ₂₃       2.3937°       2.4031°    -0.0094°
+       θ₁₃       0.2172°       0.2120°    +0.0052°
+
+  Column unitarity residual: 0.009004
+  Column |V|² sums: [1.01102874 0.98897421 0.99999705]
+  Impedance S = 0.031387
+
+  Q1 PASSED
+
+======================================================================
+Q2: Target reconstruction — CKM at impedance angles + observed δ
+======================================================================
+
+  Target |V_ij| (standard unitary at impedance angles):
+                 d          s          b
+      u   0.977782   0.209589   0.003791
+      c   0.209473   0.976922   0.041765
+      t   0.007950   0.041176   0.999120
+
+  Impedance |V_ij| (row-normalised, diagnostic):
+                 d          s          b
+      u   0.977782   0.209589   0.003791
+      c   0.234308   0.971265   0.041765
+      t   0.008395   0.041124   0.999119
+
+  Target Φ_ij = arg(V_ij) in standard convention (radians):
+                 d          s          b
+      u   0.000000   0.000000  -1.139000
+      c  -3.140921  -0.000031   0.000000
+      t  -0.436802  -3.124083   0.000000
+
+  Jarlskog invariant:
+    J_observed = 3.087532e-05
+    J_target   = 2.944091e-05
+
+  Target quartet phases arg(V_ai V_bj V*_aj V*_bi) (radians):
+      rows     cols        Φ_Q          J_Q
+       u,c      d,s   3.140891 2.944091e-05
+       u,c      d,b  -2.003264 -2.944091e-05
+       u,c      s,b   1.139031 2.944091e-05
+       u,t      d,s  -2.687281 -2.944091e-05
+       u,t      d,b   1.575802 2.944091e-05
+       u,t      s,b  -2.020102 -2.944091e-05
+       c,t      d,s   0.455013 2.944091e-05
+       c,t      d,b  -2.704120 -2.944091e-05
+       c,t      s,b   3.124052 2.944091e-05
+
+  Unitarity check max|VV†−I| = 2.22e-16 (✓)
+  |J_target/J_obs − 1| = 0.0465 (✓)
+
+  Q2 PASSED
+
+======================================================================
+Q3: Topology signal search — co_sum phase candidates vs Jarlskog J
+======================================================================
+
+  Per-transition shed/gain/shared decomposition and co_sum data:
+
+  u→d: shed=[5, 53, 59] gain=[127, 271] shared=[17, 97, 211]
+    shared k=1: r_gain(127)=18, r_shed(5)=2, Δr=16
+    shared k=7: r_gain(271)=32, r_shed(53)=2, Δr=30
+    shared k=1: r_gain(127)=18, r_shed(59)=10, Δr=8
+    shared k=3: r_gain(127)=16, r_shed(59)=8, Δr=8
+    shared k=7: r_gain(271)=32, r_shed(59)=4, Δr=28
+    X_shared_sum=90, X_shed_gain=218, X_rms=45.48
+    R_shared=0.6347, ΔlnM=-0.7890, Δa·π/2=0.0000
+
+  u→s: shed=[53, 59] gain=[127, 271] shared=[5, 17, 97, 211]
+    shared k=7: r_gain(271)=32, r_shed(53)=2, Δr=30
+    shared k=1: r_gain(127)=18, r_shed(59)=10, Δr=8
+    shared k=3: r_gain(127)=16, r_shed(59)=8, Δr=8
+    shared k=7: r_gain(271)=32, r_shed(59)=4, Δr=28
+    X_shared_sum=74, X_shed_gain=221, X_rms=42.57
+    R_shared=0.7770, ΔlnM=-2.3985, Δa·π/2=3.1416
+
+  u→b: shed=[59] gain=[127, 271] shared=[5, 17, 53, 97, 211]
+    shared k=1: r_gain(127)=18, r_shed(59)=10, Δr=8
+    shared k=3: r_gain(127)=16, r_shed(59)=8, Δr=8
+    shared k=7: r_gain(271)=32, r_shed(59)=4, Δr=28
+    X_shared_sum=44, X_shed_gain=230, X_rms=30.20
+    R_shared=1.2627, ΔlnM=-6.3688, Δa·π/2=3.1416
+
+  c→d: shed=[5, 53, 59] gain=[271] shared=[17, 97, 127, 211]
+    shared k=7: r_gain(271)=32, r_shed(53)=2, Δr=30
+    shared k=7: r_gain(271)=32, r_shed(59)=4, Δr=28
+    X_shared_sum=58, X_shed_gain=161, X_rms=41.04
+    R_shared=1.1536, ΔlnM=4.0551, Δa·π/2=-3.1416
+
+  c→s: shed=[53, 59] gain=[271] shared=[5, 17, 97, 127, 211]
+    shared k=7: r_gain(271)=32, r_shed(53)=2, Δr=30
+    shared k=7: r_gain(271)=32, r_shed(59)=4, Δr=28
+    X_shared_sum=58, X_shed_gain=164, X_rms=41.04
+    R_shared=1.4076, ΔlnM=2.4457, Δa·π/2=0.0000
+
+  c→b: shed=[59] gain=[271] shared=[5, 17, 53, 97, 127, 211]
+    shared k=7: r_gain(271)=32, r_shed(59)=4, Δr=28
+    X_shared_sum=28, X_shed_gain=173, X_rms=28.00
+    R_shared=2.3951, ΔlnM=-1.5246, Δa·π/2=0.0000
+
+  t→d: shed=[5, 53, 59] gain=[] shared=[17, 97, 127, 211, 271]
+    (no shared k-modes between shed/gain packets)
+    X_shared_sum=0, X_shed_gain=-34, X_rms=0.00
+    R_shared=2.4030, ΔlnM=9.6573, Δa·π/2=-3.1416
+
+  t→s: shed=[53, 59] gain=[] shared=[5, 17, 97, 127, 211, 271]
+    (no shared k-modes between shed/gain packets)
+    X_shared_sum=0, X_shed_gain=-31, X_rms=0.00
+    R_shared=3.0835, ΔlnM=8.0478, Δa·π/2=0.0000
+
+  t→b: shed=[59] gain=[] shared=[5, 17, 53, 97, 127, 211, 271]
+    (no shared k-modes between shed/gain packets)
+    X_shared_sum=0, X_shed_gain=-22, X_rms=0.00
+    R_shared=7.0596, ΔlnM=4.0775, Δa·π/2=0.0000
+
+
+  ============================================================
+  Primary co_sum candidates (integer N-scan: Φ = 2πX/N)
+  ============================================================
+
+  Candidate: X_shared_sum
+    Raw X values:
+                 d        s        b
+        u    90.00    74.00    44.00
+        c    58.00    58.00    28.00
+        t     0.00     0.00     0.00
+
+    N=3: Φ = 2πX/3
+      Primary quartet (u,c;d,s): Φ_Q=33.510322, J_topo=3.631858e-02 (obs: 3.087532e-05)
+      sin δ_topo=1120.382761, δ_topo=1.5708 rad (or π−δ=1.5708) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s  33.510322 3.631858e-02
+           u,c      d,b  33.510322 2.808196e-05
+           u,c      s,b  -0.000000 -4.606557e-19
+           u,t      d,s  33.510322 5.809948e-05
+           u,t      d,b  96.342175 2.549690e-05
+           u,t      s,b  62.831853 -8.005499e-20
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b  62.831853 3.235696e-19
+           c,t      s,b  62.831853 7.815639e-18
+
+    N=6: Φ = 2πX/6
+      Primary quartet (u,c;d,s): Φ_Q=16.755161, J_topo=-3.631858e-02 (obs: 3.087532e-05)
+      sin δ_topo=-1120.382761, δ_topo=-1.5708 rad (or π−δ=4.7124) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s  16.755161 -3.631858e-02
+           u,c      d,b  16.755161 -2.808196e-05
+           u,c      s,b  -0.000000 -2.303278e-19
+           u,t      d,s  16.755161 -5.809948e-05
+           u,t      d,b  48.171087 -2.549690e-05
+           u,t      s,b  31.415927 -4.002749e-20
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b  31.415927 1.617848e-19
+           c,t      s,b  31.415927 3.907819e-18
+
+    N=9: Φ = 2πX/9
+      Primary quartet (u,c;d,s): Φ_Q=11.170107, J_topo=-4.129996e-02 (obs: 3.087532e-05)
+      sin δ_topo=-1274.052268, δ_topo=-1.5708 rad (or π−δ=4.7124) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s  11.170107 -4.129996e-02
+           u,c      d,b  11.170107 -3.193363e-05
+           u,c      s,b   0.000000 2.303278e-19
+           u,t      d,s  11.170107 -6.606830e-05
+           u,t      d,b  32.114058 1.892449e-05
+           u,t      s,b  20.943951 2.830598e-05
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b  20.943951 6.018286e-05
+           c,t      s,b  20.943951 1.453683e-03
+
+    N=12: Φ = 2πX/12
+      Primary quartet (u,c;d,s): Φ_Q=8.377580, J_topo=3.631858e-02 (obs: 3.087532e-05)
+      sin δ_topo=1120.382761, δ_topo=1.5708 rad (or π−δ=1.5708) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s   8.377580 3.631858e-02
+           u,c      d,b   8.377580 2.808196e-05
+           u,c      s,b  -0.000000 -1.151639e-19
+           u,t      d,s   8.377580 5.809948e-05
+           u,t      d,b  24.085544 -2.549690e-05
+           u,t      s,b  15.707963 2.001375e-20
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b  15.707963 -8.089239e-20
+           c,t      s,b  15.707963 -1.953910e-18
+
+  Candidate: X_shed_gain_sum
+    Raw X values:
+                 d        s        b
+        u   218.00   221.00   230.00
+        c   161.00   164.00   173.00
+        t   -34.00   -31.00   -22.00
+
+    N=3: Φ = 2πX/3
+      Primary quartet (u,c;d,s): Φ_Q=-0.000000, J_topo=-4.767694e-15 (obs: 3.087532e-05)
+      sin δ_topo=-0.000000, δ_topo=-0.0000 rad (or π−δ=3.1416) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s  -0.000000 -4.767694e-15
+           u,c      d,b   0.000000 0.000000e+00
+           u,c      s,b   0.000000 0.000000e+00
+           u,t      d,s   0.000000 0.000000e+00
+           u,t      d,b  -0.000000 -1.673543e-18
+           u,t      s,b  -0.000000 -9.289616e-19
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b   0.000000 0.000000e+00
+           c,t      s,b  -0.000000 -4.770778e-17
+
+    N=6: Φ = 2πX/6
+      Primary quartet (u,c;d,s): Φ_Q=-0.000000, J_topo=-2.383847e-15 (obs: 3.087532e-05)
+      sin δ_topo=-0.000000, δ_topo=-0.0000 rad (or π−δ=3.1416) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s  -0.000000 -2.383847e-15
+           u,c      d,b   0.000000 0.000000e+00
+           u,c      s,b   0.000000 0.000000e+00
+           u,t      d,s   0.000000 0.000000e+00
+           u,t      d,b  -0.000000 -8.367716e-19
+           u,t      s,b  -0.000000 -4.644808e-19
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b   0.000000 0.000000e+00
+           c,t      s,b  -0.000000 -2.385389e-17
+
+    N=9: Φ = 2πX/9
+      Primary quartet (u,c;d,s): Φ_Q=-0.000000, J_topo=-2.383847e-15 (obs: 3.087532e-05)
+      sin δ_topo=-0.000000, δ_topo=-0.0000 rad (or π−δ=3.1416) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s  -0.000000 -2.383847e-15
+           u,c      d,b  -0.000000 -9.216097e-19
+           u,c      s,b   0.000000 0.000000e+00
+           u,t      d,s   0.000000 0.000000e+00
+           u,t      d,b  -0.000000 -8.367716e-19
+           u,t      s,b  -0.000000 -5.806010e-19
+           c,t      d,s   0.000000 9.520026e-19
+           c,t      d,b   0.000000 9.875576e-19
+           c,t      s,b  -0.000000 -5.963473e-18
+
+    N=12: Φ = 2πX/12
+      Primary quartet (u,c;d,s): Φ_Q=-0.000000, J_topo=-1.191923e-15 (obs: 3.087532e-05)
+      sin δ_topo=-0.000000, δ_topo=-0.0000 rad (or π−δ=3.1416) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s  -0.000000 -1.191923e-15
+           u,c      d,b   0.000000 0.000000e+00
+           u,c      s,b   0.000000 0.000000e+00
+           u,t      d,s   0.000000 0.000000e+00
+           u,t      d,b  -0.000000 -4.183858e-19
+           u,t      s,b  -0.000000 -2.322404e-19
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b   0.000000 0.000000e+00
+           c,t      s,b  -0.000000 -1.192695e-17
+
+  Candidate: X_shared_rms
+    Raw X values:
+                 d        s        b
+        u    45.48    42.57    30.20
+        c    41.04    41.04    28.00
+        t     0.00     0.00     0.00
+
+    N=3: Φ = 2πX/3
+      Primary quartet (u,c;d,s): Φ_Q=6.089820, J_topo=-8.058751e-03 (obs: 3.087532e-05)
+      sin δ_topo=-248.602428, δ_topo=-1.5708 rad (or π−δ=4.7124) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s   6.089820 -8.058751e-03
+           u,c      d,b   4.690107 -3.241821e-05
+           u,c      s,b  -1.399713 -3.194252e-05
+           u,t      d,s   6.089820 -1.289173e-05
+           u,t      d,b  31.993834 1.608295e-05
+           u,t      s,b  25.904014 2.278298e-05
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b  27.303726 5.734779e-05
+           c,t      s,b  27.303726 1.385203e-03
+
+    N=6: Φ = 2πX/6
+      Primary quartet (u,c;d,s): Φ_Q=3.044910, J_topo=4.048282e-03 (obs: 3.087532e-05)
+      sin δ_topo=124.884443, δ_topo=1.5708 rad (or π−δ=1.5708) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s   3.044910 4.048282e-03
+           u,c      d,b   2.345054 2.318285e-05
+           u,c      s,b  -0.699856 -2.087924e-05
+           u,t      d,s   3.044910 6.476110e-06
+           u,t      d,b  15.996917 -8.389272e-06
+           u,t      s,b  12.952007 1.229440e-05
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b  13.651863 6.146904e-05
+           c,t      s,b  13.651863 1.484750e-03
+
+    N=9: Φ = 2πX/9
+      Primary quartet (u,c;d,s): Φ_Q=2.029940, J_topo=3.759376e-02 (obs: 3.087532e-05)
+      sin δ_topo=1159.720475, δ_topo=1.5708 rad (or π−δ=1.5708) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s   2.029940 3.759376e-02
+           u,c      d,b   1.563369 3.242536e-05
+           u,c      s,b  -0.466571 -1.458146e-05
+           u,t      d,s   2.029940 6.013941e-05
+           u,t      d,b  10.664611 -2.784350e-05
+           u,t      s,b   8.634671 2.322030e-05
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b   9.101242 2.209334e-05
+           c,t      s,b   9.101242 5.336520e-04
+
+    N=12: Φ = 2πX/12
+      Primary quartet (u,c;d,s): Φ_Q=1.522455, J_topo=4.188809e-02 (obs: 3.087532e-05)
+      sin δ_topo=1292.195245, δ_topo=1.5708 rad (or π−δ=1.5708) (obs: 1.1390)
+      All quartets:
+          rows     cols        Φ_Q       J_topo
+           u,c      d,s   1.522455 4.188809e-02
+           u,c      d,b   1.172527 2.988837e-05
+           u,c      s,b  -0.349928 -1.111310e-05
+           u,t      d,s   1.522455 6.700913e-05
+           u,t      d,b   7.998458 2.913454e-05
+           u,t      s,b   6.476003 6.263269e-06
+           c,t      d,s   0.000000 0.000000e+00
+           c,t      d,b   6.825932 3.589251e-05
+           c,t      s,b   6.825932 8.669630e-04
+
+
+  ============================================================
+  Secondary candidates (diagnostic)
+  ============================================================
+
+  R_shared (Z_R rewiring factor):
+                   d          s          b
+        u     0.6347     0.7770     1.2627
+        c     1.1536     1.4076     2.3951
+        t     2.4030     3.0835     7.0596
+
+  ΔlnM = Σln(shed) − Σln(gain):
+                   d          s          b
+        u    -0.7890    -2.3985    -6.3688
+        c     4.0551     2.4457    -1.5246
+        t     9.6573     8.0478     4.0775
+
+  Δa · π/2 (literal phase):
+                   d          s          b
+        u     0.0000     3.1416     3.1416
+        c    -3.1416     0.0000     0.0000
+        t    -3.1416     0.0000     0.0000
+    Primary quartet J_topo=0.000000e+00 (obs: 3.087532e-05)
+
+  R_shared × X_shared_sum (R_shared · 2πX/N):
+    N=3: J_topo=-4.090458e-02 (obs: 3.087532e-05)
+    N=6: J_topo=2.618077e-02 (obs: 3.087532e-05)
+    N=9: J_topo=-2.360043e-02 (obs: 3.087532e-05)
+    N=12: J_topo=3.957664e-02 (obs: 3.087532e-05)
+
+  R_shared × X_shed_gain_sum (R_shared · 2πX/N):
+    N=3: J_topo=-2.000489e-02 (obs: 3.087532e-05)
+    N=6: J_topo=-1.031978e-02 (obs: 3.087532e-05)
+    N=9: J_topo=3.928053e-02 (obs: 3.087532e-05)
+    N=12: J_topo=-5.200019e-03 (obs: 3.087532e-05)
+
+  R_shared × X_shared_rms (R_shared · 2πX/N):
+    N=3: J_topo=1.788854e-02 (obs: 3.087532e-05)
+    N=6: J_topo=9.165871e-03 (obs: 3.087532e-05)
+    N=9: J_topo=-3.899653e-02 (obs: 3.087532e-05)
+    N=12: J_topo=-4.610890e-03 (obs: 3.087532e-05)
+
+
+  ============================================================
+  Controls / impedance correlates
+  ============================================================
+
+  n_shed:
+                 d        s        b
+        u     3.00     2.00     1.00
+        c     3.00     2.00     1.00
+        t     3.00     2.00     1.00
+
+  n_gain:
+                 d        s        b
+        u     2.00     2.00     2.00
+        c     1.00     1.00     1.00
+        t     0.00     0.00     0.00
+
+  energy_imbalance:
+                 d        s        b
+        u   281.00   286.00   339.00
+        c   154.00   159.00   212.00
+        t   117.00   112.00    59.00
+
+  chirality_sign:
+                 d        s        b
+        u    -1.00    -1.00    -1.00
+        c    -1.00    -1.00    -1.00
+        t     1.00     1.00     1.00
+
+  pure_shedding:
+                 d        s        b
+        u        0        0        0
+        c        0        0        0
+        t        1        1        1
+
+======================================================================
+SUMMARY
+======================================================================
+
+  Q1 — Mixing angles:    PASSED ✓
+  Q2 — Target CKM:       PASSED ✓ (reconstruction at observed δ)
+  Q3 — 25 candidates tested
+
+    Best signed match: DeltaA_phase (literal)
+      J_topo = 0.000000e+00, J_obs = 3.087532e-05
+      |J_topo/J_obs − 1| = 1.0000
+    Best magnitude match: X_shed_gain_sum (N=3)
+      |J_topo| = 4.767694e-15, |J_obs| = 3.087532e-05
+      ||J_topo|/|J_obs| − 1| = 1.0000
+
+    Signal: WEAK or ABSENT
+
+======================================================================
+COMPLETE — 0.1s
+======================================================================

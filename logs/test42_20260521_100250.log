@@ -1,0 +1,105 @@
+======================================================================
+TEST 42: Phase 3 — Transfer determinant mass mechanism
+======================================================================
+
+======================================================================
+Q1: Packet transfer gain g_p = E_p = p
+======================================================================
+
+  Define effective packet-space transfer operator G = diag(g_0, ..., g_7)
+  with g_p identified as the packet energy E_p = Σk² = p.
+
+  slot 0: modes           {1,2}  E_p = Σk² =   5  g_p =   5  ✓
+  slot 1: modes           {1,4}  E_p = Σk² =  17  g_p =  17  ✓
+  slot 2: modes           {2,7}  E_p = Σk² =  53  g_p =  53  ✓
+  slot 3: modes         {1,3,7}  E_p = Σk² =  59  g_p =  59  ✓
+  slot 4: modes           {4,9}  E_p = Σk² =  97  g_p =  97  ✓
+  slot 5: modes       {1,3,6,9}  E_p = Σk² = 127  g_p = 127  ✓
+  slot 6: modes     {1,4,7,8,9}  E_p = Σk² = 211  g_p = 211  ✓
+  slot 7: modes   {4,5,6,7,8,9}  E_p = Σk² = 271  g_p = 271  ✓
+
+  G = diag(5, 17, 53, 59, 97, 127, 211, 271)
+  ln G = diag(1.6094, 2.8332, 3.9703, 4.0775, 4.5747, 4.8442, 5.3519, 5.6021)
+
+  Q1 PASSED: g_p = E_p = p for all 8 packets
+
+======================================================================
+Q2: Fermion mass M_f = det(G|_f) = Π g_p
+======================================================================
+
+  u: slots [0, 1, 2, 3, 4, 6]
+     M_u = 5 × 17 × 53 × 59 × 97 × 211 = 5,440,026,265
+     ln M_u = 22.417050
+
+  c: slots [0, 1, 2, 3, 4, 5, 6]
+     M_c = 5 × 17 × 53 × 59 × 97 × 127 × 211 = 690,883,335,655
+     ln M_c = 27.261237
+
+  t: slots [0, 1, 2, 3, 4, 5, 6, 7]
+     M_t = 5 × 17 × 53 × 59 × 97 × 127 × 211 × 271 = 187,229,383,962,505
+     ln M_t = 32.863356
+
+  d: slots [1, 4, 5, 6, 7]
+     M_d = 17 × 97 × 127 × 211 × 271 = 11,975,016,563
+     ln M_d = 23.206088
+
+  s: slots [0, 1, 4, 5, 6, 7]
+     M_s = 5 × 17 × 97 × 127 × 211 × 271 = 59,875,082,815
+     ln M_s = 24.815526
+
+  b: slots [0, 1, 2, 4, 5, 6, 7]
+     M_b = 5 × 17 × 53 × 97 × 127 × 211 × 271 = 3,173,379,389,195
+     ln M_b = 28.785818
+
+  Hierarchy: M_t(187,229,383,962,505) > M_b(3,173,379,389,195) > M_c(690,883,335,655) > M_s(59,875,082,815) > M_d(11,975,016,563) > M_u(5,440,026,265)
+  Expected:  M_t > M_b > M_c > M_s > M_d > M_u
+
+  Q2 PASSED: mode numbers correct, hierarchy correct
+
+======================================================================
+Q3: CKM shedding ratios from packet gain algebra
+======================================================================
+
+  trans               shed primes               gain primes     M_src/M_tgt   Π_shed/Π_gain  match
+  u→d                     5×53×59                   127×271          0.4543          0.4543      ✓
+  u→s                       53×59                   127×271          0.0909          0.0909      ✓
+  u→b                          59                   127×271          0.0017          0.0017      ✓
+  c→d                     5×53×59                       271         57.6937         57.6937      ✓
+  c→s                       53×59                       271         11.5387         11.5387      ✓
+  c→b                          59                       271          0.2177          0.2177      ✓
+  t→d                     5×53×59                    (none)      15635.0000      15635.0000      ✓
+  t→s                       53×59                    (none)       3127.0000       3127.0000      ✓
+  t→b                          59                    (none)         59.0000         59.0000      ✓
+
+  Generation ratios (single packet gains):
+    M_c/M_u = 127 = g_5=127
+    M_t/M_c = 271 = g_7=271
+    M_s/M_d = 5 = g_0=5
+    M_b/M_s = 53 = g_2=53
+
+  Q3 PASSED: all 9 shedding ratios consistent
+
+======================================================================
+Q4: Impedance identity (reproduce test40, S = 0.031387)
+======================================================================
+
+  S = 0.031387 (target: 0.031387)
+  Q4 PASSED: matches test40
+
+======================================================================
+SUMMARY
+======================================================================
+
+  Two layers of the topology:
+    Mass layer:       det(G|_f) = Πp_i        (multiplicative, transfer gain)
+    Transition layer: Z_ij = Σ Z_terms         (additive, impedance costs)
+    Both use:         E_p = Σk² = p            (packet energy as common input)
+
+  Q1 — Packet transfer gain:    PASSED ✓
+  Q2 — Fermion mass hierarchy:  PASSED ✓
+  Q3 — Shedding ratios:         PASSED ✓
+  Q4 — Impedance identity:      PASSED ✓
+
+======================================================================
+COMPLETE — 0.0s
+======================================================================

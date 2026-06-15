@@ -1,0 +1,198 @@
+=== TEST 47: NEUTRINO GEOMETRY NULL (Phase 10B) ===
+
+--- Observed values (NuFIT 5.3, 2024, normal ordering) ---
+  theta12 = 33.44 +/- 0.75 deg
+  theta23 = 49.0 +/- 1.4 deg
+  theta13 = 8.54 +/- 0.15 deg
+  R       = 32.6 +/- 1.2
+
+--- Phase 8 reference ---
+  theta23=48.65, theta12=33.88, theta13=8.59
+  chi2 = 0.5178, total complexity = 8
+
+--- Centre audit (canonical labelling) ---
+  Centre               Class             x        y    d_Up    d_Dn   d_Lep  sep_UD  sep_UL  sep_DL
+  ----------------------------------------------------------------------------------------------------
+  Incenter             interior      95.00    38.83   44.63  305.48  102.63  112.23   97.30  150.47
+  Centroid             interior     160.50    27.32   94.41  239.07  162.81  151.20   45.02  163.78
+  Circumcenter         exterior     199.00  -119.24  231.99  231.99  231.99   88.93   29.21  118.14
+  Orthocenter          exterior      83.50   320.44  238.49  448.99  331.14   44.46   14.61   59.07
+  Nine-point           exterior     141.25   100.60   60.68  275.75  173.41  140.71   17.56  123.15
+  Fermat(=Up)          boundary      83.50    81.95    0.00  325.00  117.00    0.00    0.00  120.93
+  Symmedian            interior      67.25    46.74   38.78  334.04   81.90   73.26  149.59  137.15
+  Excentre(opp.Up)     exterior     303.00  -741.30  852.02  747.37  800.84   22.23    7.30   29.53
+  Excentre(opp.Dn)     exterior     -22.00    53.82  109.19  423.43   58.15   22.23   82.70   60.47
+  Excentre(opp.Lep)    exterior     420.00   171.67  348.25  173.07  453.73   67.77    7.30   60.47
+
+--- Angle search complete ---
+  Total triplets tested: 35,711,814
+  Matches within 3-sigma: 2460
+
+--- Primary tier ---
+  Total tested:         180,762
+  3-sigma matches:      3
+  Within 1-sigma:       1
+  Within 2-sigma:       2
+  chi2 <= Phase8 (0.5178): 1
+  Best: chi2=0.5172 [interior] [CANON] Incenter c=8
+    (33.88,48.65,8.59) ('PH8_theta12', 'PH8_theta23', 'PH8_theta13')
+  Phase 8 EXACT rank: 1 of 3 (chi2=0.5172)
+  Phase 8 family rank: 1 of 3
+  All 1-sigma matches:
+    chi2=0.5172 c= 8 [interior] [CANON] Incenter         (33.88,48.65,8.59) tiers=['Primary', 'Secondary', 'Tertiary-I', 'Tertiary-A'] ***PH8***
+      ('PH8_theta12', 'PH8_theta23', 'PH8_theta13')  lab=A->UL,B->UD,C->DL
+
+--- Secondary tier ---
+  Total tested:         1,084,572
+  3-sigma matches:      6
+  Within 1-sigma:       2
+  Within 2-sigma:       4
+  chi2 <= Phase8 (0.5178): 2
+  Best: chi2=0.5172 [interior] [CANON] Incenter c=8
+    (33.88,48.65,8.59) ('PH8_theta12', 'PH8_theta23', 'PH8_theta13')
+  Phase 8 EXACT rank: 1 of 6 (chi2=0.5172)
+  Phase 8 family rank: 1 of 6
+  All 1-sigma matches:
+    chi2=0.5172 c= 8 [interior] [CANON] Incenter         (33.88,48.65,8.59) tiers=['Primary', 'Secondary', 'Tertiary-I', 'Tertiary-A'] ***PH8***
+      ('PH8_theta12', 'PH8_theta23', 'PH8_theta13')  lab=A->UL,B->UD,C->DL
+    chi2=0.5172 c= 8 [interior] [relab] Incenter         (33.88,48.65,8.59) tiers=['Secondary', 'Tertiary-I', 'Tertiary-A']
+      ('PH8_theta12', 'sep_DL/2', 'ang_Up/2+3/840')  lab=C->UL,B->UD,A->DL
+
+--- Tertiary-I tier ---
+  Total tested:         17,666,748
+  3-sigma matches:      900
+  Within 1-sigma:       24
+  Within 2-sigma:       114
+  chi2 <= Phase8 (0.5178): 12
+  Best: chi2=0.4731 [interior] [CANON] Incenter c=11
+    (33.88,48.81,8.59) ('PH8_theta12', '|ang_Dn/2-sep_UD/2|', 'PH8_theta13')
+  Phase 8 EXACT rank: 7 of 900 (chi2=0.5172)
+  Phase 8 family rank: 7 of 900
+  All 1-sigma matches:
+    chi2=0.4731 c=11 [interior] [CANON] Incenter         (33.88,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('PH8_theta12', '|ang_Dn/2-sep_UD/2|', 'PH8_theta13')  lab=A->UL,B->UD,C->DL
+    chi2=0.4731 c=13 [interior] [relab] Incenter         (33.88,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Up/2-sep_DL/2|', '|ang_Lep/2-sep_DL/2|', 'ang_Lep/2+3/840')  lab=C->UL,A->UD,B->DL
+    chi2=0.4731 c=13 [interior] [relab] Incenter         (33.88,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Up/2-sep_DL/2|', '|ang_Dn/2-sep_DL/2|', 'PH8_theta13')  lab=A->UL,C->UD,B->DL
+    chi2=0.4731 c=13 [interior] [relab] Incenter         (33.88,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Dn/2-sep_UL/2|', '|ang_Up/2-sep_UL/2|', 'ang_Up/2+3/840')  lab=B->UL,C->UD,A->DL
+    chi2=0.4731 c=11 [interior] [relab] Incenter         (33.88,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('PH8_theta12', '|ang_Up/2-sep_UD/2|', 'ang_Up/2+3/840')  lab=C->UL,B->UD,A->DL
+    chi2=0.4731 c=13 [interior] [relab] Incenter         (33.88,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Dn/2-sep_UL/2|', '|ang_Lep/2-sep_UL/2|', 'ang_Lep/2+3/840')  lab=B->UL,A->UD,C->DL
+    chi2=0.5172 c= 8 [interior] [CANON] Incenter         (33.88,48.65,8.59) tiers=['Primary', 'Secondary', 'Tertiary-I', 'Tertiary-A'] ***PH8***
+      ('PH8_theta12', 'PH8_theta23', 'PH8_theta13')  lab=A->UL,B->UD,C->DL
+    chi2=0.5172 c=10 [interior] [relab] Incenter         (33.88,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Up/2-sep_DL/2|', 'sep_UD/2', 'ang_Lep/2+3/840')  lab=C->UL,A->UD,B->DL
+    chi2=0.5172 c=10 [interior] [relab] Incenter         (33.88,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Up/2-sep_DL/2|', 'PH8_theta23', 'PH8_theta13')  lab=A->UL,C->UD,B->DL
+    chi2=0.5172 c=10 [interior] [relab] Incenter         (33.88,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Dn/2-sep_UL/2|', 'sep_DL/2', 'ang_Up/2+3/840')  lab=B->UL,C->UD,A->DL
+    chi2=0.5172 c= 8 [interior] [relab] Incenter         (33.88,48.65,8.59) tiers=['Secondary', 'Tertiary-I', 'Tertiary-A']
+      ('PH8_theta12', 'sep_DL/2', 'ang_Up/2+3/840')  lab=C->UL,B->UD,A->DL
+    chi2=0.5172 c=10 [interior] [relab] Incenter         (33.88,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Dn/2-sep_UL/2|', 'sep_UD/2', 'ang_Lep/2+3/840')  lab=B->UL,A->UD,C->DL
+    chi2=0.7749 c=12 [interior] [relab] Incenter         (34.05,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_UD-sep_UD/2', '|ang_Lep/2-sep_DL/2|', 'ang_Lep/2+3/840')  lab=C->UL,A->UD,B->DL
+    chi2=0.7749 c=12 [interior] [relab] Incenter         (34.05,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Lep-sep_UD/2|', '|ang_Lep/2-sep_UL/2|', 'ang_Lep/2+3/840')  lab=B->UL,A->UD,C->DL
+    chi2=0.7749 c=12 [interior] [relab] Incenter         (34.05,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_UL-sep_UL/2', '|ang_Dn/2-sep_DL/2|', 'PH8_theta13')  lab=A->UL,C->UD,B->DL
+    chi2=0.7749 c=12 [interior] [relab] Incenter         (34.05,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_DL-sep_DL/2', '|ang_Up/2-sep_UL/2|', 'ang_Up/2+3/840')  lab=B->UL,C->UD,A->DL
+    chi2=0.7749 c=12 [interior] [relab] Incenter         (34.05,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_DL-sep_DL/2', '|ang_Up/2-sep_UD/2|', 'ang_Up/2+3/840')  lab=C->UL,B->UD,A->DL
+    chi2=0.7749 c=12 [interior] [CANON] Incenter         (34.05,48.81,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_UL-sep_UL/2', '|ang_Dn/2-sep_UD/2|', 'PH8_theta13')  lab=A->UL,B->UD,C->DL
+    chi2=0.8190 c= 9 [interior] [relab] Incenter         (34.05,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_UD-sep_UD/2', 'sep_UD/2', 'ang_Lep/2+3/840')  lab=C->UL,A->UD,B->DL
+    chi2=0.8190 c= 9 [interior] [relab] Incenter         (34.05,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('|ang_Lep-sep_UD/2|', 'sep_UD/2', 'ang_Lep/2+3/840')  lab=B->UL,A->UD,C->DL
+    chi2=0.8190 c= 9 [interior] [CANON] Incenter         (34.05,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_UL-sep_UL/2', 'PH8_theta23', 'PH8_theta13')  lab=A->UL,B->UD,C->DL
+    chi2=0.8190 c= 9 [interior] [relab] Incenter         (34.05,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_UL-sep_UL/2', 'PH8_theta23', 'PH8_theta13')  lab=A->UL,C->UD,B->DL
+    chi2=0.8190 c= 9 [interior] [relab] Incenter         (34.05,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_DL-sep_DL/2', 'sep_DL/2', 'ang_Up/2+3/840')  lab=B->UL,C->UD,A->DL
+    chi2=0.8190 c= 9 [interior] [relab] Incenter         (34.05,48.65,8.59) tiers=['Tertiary-I', 'Tertiary-A']
+      ('180-sep_DL-sep_DL/2', 'sep_DL/2', 'ang_Up/2+3/840')  lab=C->UL,B->UD,A->DL
+
+--- Tertiary-A tier ---
+  Total tested:         35,711,814
+  3-sigma matches:      2460
+  Within 1-sigma:       108
+  Within 2-sigma:       600
+  chi2 <= Phase8 (0.5178): 36
+  Best: chi2=0.1818 [exterior] [relab] Excentre(opp.Dn) c=12
+    (33.35,48.65,8.59) ('|ang_Up-sep_DL/2|', 'ang_Dn/2+sep_UL/2', 'PH8_theta13')
+  Phase 8 EXACT rank: 31 of 2460 (chi2=0.5172)
+  Phase 8 family rank: 31 of 2460
+
+======================================================================
+  MASS-SPLITTING RATIO SCAN
+======================================================================
+
+  Normal-order matches: 1890
+  Inverted/other (diagnostic): 9506
+  Normal within 1-sigma: 12
+  Normal within 2-sigma: 42
+
+  Phase 8 mass: R=34.35, 1.46-sigma, rank 32 of 1890
+
+  Top 10 mass (normal ordering):
+     1. R= 32.05 (0.46s) [interior] [relab] Incenter     w=p^(1/3)  d=W/d^2  Up->v3,Down->v2,Lepton->v1
+     2. R= 32.05 (0.46s) [interior] [relab] Incenter     w=p^(1/3)  d=W/d^2  Lepton->v3,Up->v2,Down->v1
+     3. R= 32.05 (0.46s) [interior] [relab] Incenter     w=p^(1/3)  d=W/d^2  Lepton->v3,Down->v2,Up->v1
+     4. R= 32.05 (0.46s) [interior] [relab] Incenter     w=p^(1/3)  d=W/d^2  Down->v3,Lepton->v2,Up->v1
+     5. R= 32.05 (0.46s) [interior] [CANON] Incenter     w=p^(1/3)  d=W/d^2  Up->v3,Lepton->v2,Down->v1
+     6. R= 32.05 (0.46s) [interior] [relab] Incenter     w=p^(1/3)  d=W/d^2  Down->v3,Up->v2,Lepton->v1
+     7. R= 31.92 (0.57s) [interior] [relab] Centroid     w=ln(p)^2  d=W/d^3  Lepton->v3,Up->v2,Down->v1
+     8. R= 31.92 (0.57s) [interior] [relab] Centroid     w=ln(p)^2  d=W/d^3  Up->v3,Down->v2,Lepton->v1
+     9. R= 31.92 (0.57s) [interior] [CANON] Centroid     w=ln(p)^2  d=W/d^3  Up->v3,Lepton->v2,Down->v1
+    10. R= 31.92 (0.57s) [interior] [relab] Centroid     w=ln(p)^2  d=W/d^3  Lepton->v3,Down->v2,Up->v1
+
+  Inverted/other within 2-sigma (diagnostic): 0
+
+======================================================================
+  JOINT PACKAGE SCORE
+======================================================================
+
+  Joint packages: 84588
+
+  --- Primary joint ranking (interior, canonical, complexity<=8) ---
+  Primary joint packages: 105
+  Phase 8 EXACT primary rank: 3 of 105
+  Phase 8 EXACT chi2: 2.6531 (ang=0.5172+mass=2.1358)
+  Top 5 primary joint:
+    1. chi2=0.727 (ang=0.517+m=0.210) Incenter     w=p^(1/3)  c=8
+    2. chi2=1.748 (ang=1.538+m=0.210) Incenter     w=p^(1/3)  c=8
+    3. chi2=2.653 (ang=0.517+m=2.136) Incenter     w=ln(p)    c=8 ***
+    4. chi2=3.674 (ang=1.538+m=2.136) Incenter     w=ln(p)    c=8
+    5. chi2=7.043 (ang=6.833+m=0.210) Incenter     w=p^(1/3)  c=8
+
+  --- Broad diagnostic joint ranking (all centres, all labellings) ---
+  Total joint packages: 84588
+  Phase 8 EXACT broad rank: 74 of 84588
+
+  Top 10 broad joint (diagnostic):
+     1. chi2=  0.683 (ang=0.473+m=0.210) [interior] [relab] Incenter     w=p^(1/3)  c=13
+     2. chi2=  0.683 (ang=0.473+m=0.210) [interior] [CANON] Incenter     w=p^(1/3)  c=11
+     3. chi2=  0.683 (ang=0.473+m=0.210) [interior] [relab] Incenter     w=p^(1/3)  c=13
+     4. chi2=  0.683 (ang=0.473+m=0.210) [interior] [relab] Incenter     w=p^(1/3)  c=13
+     5. chi2=  0.683 (ang=0.473+m=0.210) [interior] [relab] Incenter     w=p^(1/3)  c=11
+     6. chi2=  0.683 (ang=0.473+m=0.210) [interior] [relab] Incenter     w=p^(1/3)  c=13
+     7. chi2=  0.727 (ang=0.517+m=0.210) [interior] [CANON] Incenter     w=p^(1/3)  c=8
+     8. chi2=  0.727 (ang=0.517+m=0.210) [interior] [relab] Incenter     w=p^(1/3)  c=10
+     9. chi2=  0.727 (ang=0.517+m=0.210) [interior] [relab] Incenter     w=p^(1/3)  c=10
+    10. chi2=  0.727 (ang=0.517+m=0.210) [interior] [relab] Incenter     w=p^(1/3)  c=10
+
+--- Gate checks ---
+  A  Centre audit table printed: PASS
+  B  Triplets tested: 35,711,814, matches: 2460: PASS
+  C  Mass scan: 1890 normal + 9506 inverted: PASS
+  D  Phase 8 ranked at each tier: PASS
+
+  HEADLINE: Primary tier 1-sigma matches: 1
+
+=== TOTAL TIME: 6.1s ===
