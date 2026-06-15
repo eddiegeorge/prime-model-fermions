@@ -1,4 +1,4 @@
-# Prime Model of Fermions
+# A Prime Model of Fermions
 
 Scripts and data supporting the paper:
 
