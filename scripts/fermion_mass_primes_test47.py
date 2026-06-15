@@ -14,7 +14,7 @@ import time
 def p(msg):
     print(msg, flush=True)
 
-# ─── Observed values (frozen: NuFIT 5.3, 2024, normal ordering) ──────
+# ─── Observed values (frozen: NuFIT 5.0, 2020, normal ordering) ──────
 OBS_T12  = 33.44;  SIG_T12  = 0.75
 OBS_T23  = 49.0;   SIG_T23  = 1.4
 OBS_T13  = 8.54;   SIG_T13  = 0.15
@@ -261,7 +261,7 @@ def cluster_pool(pool, eps=0.01):
 def main():
     t0 = time.time()
     p("=== TEST 47: NEUTRINO GEOMETRY NULL (Phase 10B) ===\n")
-    p("--- Observed values (NuFIT 5.3, 2024, normal ordering) ---")
+    p("--- Observed values (NuFIT 5.0, 2020, normal ordering) ---")
     p(f"  theta12 = {OBS_T12} +/- {SIG_T12} deg")
     p(f"  theta23 = {OBS_T23} +/- {SIG_T23} deg")
     p(f"  theta13 = {OBS_T13} +/- {SIG_T13} deg")

@@ -1191,7 +1191,7 @@ For packages that specify both a centre/projection triplet and a weight/distance
 
 Joint packages must share the same centre, the same edge/vertex labelling, and the same vertex-to-neutrino assignment where applicable. The Phase 8 joint package is: incenter + canonical labelling + Phase 8 angle rules + ln(p)/d² + Up→ν₃, Lepton→ν₂, Down→ν₁.
 
-Report Phase 8 joint rank under the primary tier. This tests the coherence of the full Phase 8 claim: one centre (incenter) with one projection rule set and one induction law (ln(p)/d²), not a mix of different centres for angles and masses.
+Report Phase 8 joint rank under the primary tier. This tests the coherence of the full Phase 8 claim: one centre (incenter) with one projection rule set and one geometric coupling law (ln(p)/d²), not a mix of different centres for angles and masses.
 
 **Headline statistic:** the clustered, same-centre, canonical-labelling, complexity-bounded count at the primary tier. Raw full-grammar triplet counts from the tertiary search are reported as look-elsewhere diagnostics only.
 
